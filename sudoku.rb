@@ -33,7 +33,12 @@ class SudokuGame
     until val && valid_val?(val)
       puts "Please enter a value between 1 and 9 (0 to clear the tile)"
       print "> "
-      val = parse_val(gets.chomp)
+      begin
+        val = parse_val(gets.chomp)
+      rescue
+        puts "Invalid value entered "
+        puts ""
+      end
     end
     val
   end
@@ -79,5 +84,5 @@ class SudokuGame
 end
 
 
-game = SudokuGame.from_file("puzzles/sudoku0.txt")
+game = SudokuGame.from_file("puzzles/sudoku1.txt")
 game.run
