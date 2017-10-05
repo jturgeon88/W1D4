@@ -55,12 +55,13 @@ class Board
     rows.all? { |row| solved_set?(row) } &&
       columns.all? { |col| solved_set?(col) } &&
       squares.all? { |square| solved_set?(square) }
-    end
+
   end
 
   def solved_set?(tiles)
     nums = tiles.map(&:value)
     nums.sort == (1..9).to_a
+
   end
 
   def square(idx)
