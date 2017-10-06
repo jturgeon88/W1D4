@@ -1,5 +1,6 @@
 require_relative "board"
 require 'colorize'
+require "byebug"
 
 puts "Only contractors write code this bad.".yellow
 
@@ -10,7 +11,7 @@ class SudokuGame
   end
 
   def initialize(board)
-    @board = [[]]
+    @board = board
   end
 
   def method_missing(method_name, *args)
@@ -65,6 +66,7 @@ class SudokuGame
   end
 
   def solved?
+    
     board.solved?
   end
 
@@ -85,3 +87,4 @@ end
 
 
 game = SudokuGame.from_file("puzzles/sudoku1.txt")
+game.run
